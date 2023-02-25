@@ -1,12 +1,45 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}" class="font-bold text-xl">{{ config('app.name', 'Laravel') }}</a>
                 </div>
+                <x-jet-nav-link href="">
+                    {{ __("Зв'язатися із лікарем") }}
+                </x-jet-nav-link>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    {{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link> --}}
+                    <div class="relative inline-block mt-6">
+                        <x-jet-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-black-700 hover:text-gray-900 hover:border-gray-300 focus:outline-none focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <div>{{ __('Діагностика') }}</div>
+                    
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-4-4h8l-4 4z"/></svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+                    
+                            <x-slot name="content">
+                                <!-- Dropdown items -->
+                                <div class="block px-4 py-2 text-xs text-gray-700">
+                                    {{ __('Виберіть категорію') }}
+                                </div>
+                                <x-jet-dropdown-link href="">
+                                    {{ __('Вірусні захворювання') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="#">
+                                    {{ __('Гастроентерологічні захворювання') }}
+                                </x-jet-dropdown-link>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -30,6 +63,7 @@
                             </button>
                         @endif
                     </x-slot>
+                    
 
                     <x-slot name="content">
                         <!-- Account Management -->
